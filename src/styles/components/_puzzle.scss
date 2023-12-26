@@ -1,0 +1,20 @@
+.puzzle {
+  h3 {
+    font-weight: 400;
+  }
+}
+
+.puzzle-summary {
+  h2 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  &:hover {
+    color: $highlight;
+  }
+}
+
+pre {
+  background: transparent !important;
+}
