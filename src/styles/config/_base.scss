@@ -6,6 +6,10 @@ $highlight: #00cc00;
   color: $text;
 }
 
+h1, h2, h3, h4 {
+  font-weight: 400;
+}
+
 body {
   background-color: $background;
   color: $text;

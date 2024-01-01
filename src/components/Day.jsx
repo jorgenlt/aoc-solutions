@@ -1,7 +1,7 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { tomorrowNightBright } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
-const Puzzle = (props) => {
+const Day = (props) => {
   return (
     <details className="puzzle">
       <summary className="puzzle-summary">
@@ -28,4 +28,4 @@ const Puzzle = (props) => {
   );
 };
 
-export default Puzzle;
+export default Day;

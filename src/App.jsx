@@ -1,6 +1,6 @@
 import "./styles/app.scss";
 
-import Puzzle from "./components/Puzzle";
+import Year from "./components/Year";
 
 const App = () => {
   return (
@@ -37,14 +37,7 @@ const App = () => {
           </h4>
         </div>
 
-        <article>
-          <Puzzle
-            day={"1"}
-            title={"Hello"}
-            codePart1={"code part 1 block here"}
-            codePart2={"code part 2 here"}
-          />
-        </article>
+        <Year year={2023} />
       </main>
     </>
   );
