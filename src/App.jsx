@@ -1,8 +1,19 @@
 import "./styles/app.scss";
 
 import Year from "./components/Year";
+import { useDispatch, useSelector } from "react-redux";
+import { setYear } from './features/aoc/aocSlice'
 
 const App = () => {
+  const {currentYear} = useSelector(state => state.aoc);
+
+  const dispatch = useDispatch();
+
+  const handleSetYear = () => {
+    dispatch(setYear(2015));
+  }
+
+
   return (
     <>
       <header>
@@ -15,7 +26,7 @@ const App = () => {
           />
         </div>
         <h1>
-          <span>Advent of Code 2023</span> - Solutions
+          <span>Advent of Code {currentYear}</span> - Solutions
         </h1>
       </header>
 
@@ -23,6 +34,10 @@ const App = () => {
         <div>
           <h4>
             <a href="#">Link to other years solutions</a>
+            <br />
+            <button
+              onClick={() => handleSetYear()}
+            >Set year to 2015</button>
           </h4>
           <h4>
             Description + link to site:{" "}
