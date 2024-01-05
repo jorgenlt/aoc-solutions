@@ -2,23 +2,23 @@ import "./styles/app.scss";
 
 import Year from "./components/Year";
 import { useDispatch, useSelector } from "react-redux";
-import { setYear, fetchCodeSnippetsAsync } from './features/aoc/aocSlice'
+import { setYear, fetchCodeSnippetsAsync } from "./features/aoc/aocSlice";
 import { useEffect } from "react";
 
 const App = () => {
-  const {currentYear} = useSelector(state => state.aoc);
+  const { currentYear, status, error } = useSelector((state) => state.aoc);
 
   const dispatch = useDispatch();
 
   const handleSetYear = () => {
     dispatch(setYear(2015));
-  }
+  };
 
   useEffect(() => {
-    dispatch(fetchCodeSnippetsAsync())
-  }, [dispatch])
-  
-
+    if (status === "idle") {
+      dispatch(fetchCodeSnippetsAsync());
+    }
+  }, [status, dispatch]);
 
   return (
     <>
@@ -41,9 +41,7 @@ const App = () => {
           <h4>
             <a href="#">Link to other years solutions</a>
             <br />
-            <button
-              onClick={() => handleSetYear()}
-            >Set year to 2015</button>
+            <button onClick={() => handleSetYear()}>Set year to 2015</button>
           </h4>
           <h4>
             Description + link to site:{" "}

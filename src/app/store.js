@@ -1,11 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit'
-import aocReducer from '../features/aoc/aocSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import aocReducer from "../features/aoc/aocSlice";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
+// import thunk from 'redux-thunk';
 
-// todo: import reducer
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, aocReducer);
 
 export const store = configureStore({
   reducer: {
-    aoc: aocReducer,
+    aoc: persistedReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -16,3 +24,5 @@ export const store = configureStore({
       // },
     }),
 });
+
+export const persistor = persistStore(store);

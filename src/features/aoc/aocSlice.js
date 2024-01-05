@@ -3,8 +3,8 @@ import axios from "axios";
 
 const initialState = {
   currentYear: 2023,
-  codeSnippets: [],
-  loading: false,
+  codeSnippets: null,
+  status: "idle",
   error: null,
 };
 
@@ -99,17 +99,16 @@ const aoc = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCodeSnippetsAsync.pending, (state) => {
-        state.loading = true;
+        state.status = "loading";
       })
       .addCase(fetchCodeSnippetsAsync.fulfilled, (state, action) => {
-        state.loading = false;
-        console.log("action.payload", action.payload);
+        state.status = "succeeded";
         state.codeSnippets = action.payload;
         state.error = null;
       })
       .addCase(fetchCodeSnippetsAsync.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });
