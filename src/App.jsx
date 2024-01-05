@@ -2,7 +2,8 @@ import "./styles/app.scss";
 
 import Year from "./components/Year";
 import { useDispatch, useSelector } from "react-redux";
-import { setYear } from './features/aoc/aocSlice'
+import { setYear, fetchCodeSnippetsAsync } from './features/aoc/aocSlice'
+import { useEffect } from "react";
 
 const App = () => {
   const {currentYear} = useSelector(state => state.aoc);
@@ -12,6 +13,11 @@ const App = () => {
   const handleSetYear = () => {
     dispatch(setYear(2015));
   }
+
+  useEffect(() => {
+    dispatch(fetchCodeSnippetsAsync())
+  }, [dispatch])
+  
 
 
   return (
