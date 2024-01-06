@@ -2,14 +2,17 @@ import "./styles/app.scss";
 
 import Year from "./components/Year";
 import { useDispatch, useSelector } from "react-redux";
-import { setYear, fetchCodeSnippetsAsync } from "./features/aoc/aocSlice";
+import {
+  setYear,
+  fetchCodeSnippetsAsync,
+  resetState,
+  setLoading,
+} from "./features/aoc/aocSlice";
 import { useEffect } from "react";
 import Loading from "./components/Loading";
 
 const App = () => {
-  const { currentYear, status, error } = useSelector(
-    (state) => state.aoc
-  );
+  const { currentYear, status, error } = useSelector((state) => state.aoc);
 
   const dispatch = useDispatch();
 
@@ -52,6 +55,8 @@ const App = () => {
             <a onClick={() => handleSetYear(2022)}>2022</a>,{" "}
             <a onClick={() => handleSetYear(2023)}>2023</a>
           </h4>
+          <p onClick={() => dispatch(resetState())}>reset state</p>
+          <p onClick={() => dispatch(setLoading())}>set loading</p>
           <h4>
             Description + link to site:{" "}
             <a
