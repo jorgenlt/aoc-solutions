@@ -4,14 +4,17 @@ import Year from "./components/Year";
 import { useDispatch, useSelector } from "react-redux";
 import { setYear, fetchCodeSnippetsAsync } from "./features/aoc/aocSlice";
 import { useEffect } from "react";
+import Loading from "./components/Loading";
 
 const App = () => {
-  const { currentYear, status, error } = useSelector((state) => state.aoc);
+  const { currentYear, status, error } = useSelector(
+    (state) => state.aoc
+  );
 
   const dispatch = useDispatch();
 
-  const handleSetYear = () => {
-    dispatch(setYear(2015));
+  const handleSetYear = (year) => {
+    dispatch(setYear(year));
   };
 
   useEffect(() => {
@@ -39,9 +42,15 @@ const App = () => {
       <main>
         <div>
           <h4>
-            <a href="#">Link to other years solutions</a>
-            <br />
-            <button onClick={() => handleSetYear()}>Set year to 2015</button>
+            <a onClick={() => handleSetYear(2015)}>2015</a>,{" "}
+            <a onClick={() => handleSetYear(2016)}>2016</a>,{" "}
+            <a onClick={() => handleSetYear(2017)}>2017</a>,{" "}
+            <a onClick={() => handleSetYear(2018)}>2018</a>,{" "}
+            <a onClick={() => handleSetYear(2019)}>2019</a>,{" "}
+            <a onClick={() => handleSetYear(2020)}>2020</a>,{" "}
+            <a onClick={() => handleSetYear(2021)}>2021</a>,{" "}
+            <a onClick={() => handleSetYear(2022)}>2022</a>,{" "}
+            <a onClick={() => handleSetYear(2023)}>2023</a>
           </h4>
           <h4>
             Description + link to site:{" "}
@@ -55,6 +64,10 @@ const App = () => {
             .
           </h4>
         </div>
+
+        {status === "loading" && <Loading />}
+
+        {status === "failed" && <p>{error}</p>}
 
         <Year year={2023} />
       </main>

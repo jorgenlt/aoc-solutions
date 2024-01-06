@@ -1,16 +1,33 @@
-
 import Day from "./Day";
+import { useSelector } from "react-redux";
 
-const Year = (props) => {
+const Year = () => {
+  const { currentYear, codeSnippets } = useSelector((state) => state.aoc);
+
+  let currentSnippets;
+  let dayElements;
+
+  if (codeSnippets && currentYear) {
+    currentSnippets = codeSnippets[currentYear];
+    dayElements = Object.keys(currentSnippets).map((key) => {
+      return (
+        <Day 
+          key={key}
+          day={key}
+          link={`https://adventofcode.com/${currentYear}/day/${key}`}
+          codePart1={currentSnippets[key]["partOne.js"]}
+          codePart2={currentSnippets[key]["partTwo.js"]}
+        />
+      )
+    });
+  }
+
   return (
     <article>
-      <h2>{props.year}</h2>
-      <Day
-        day={"1"}
-        title={"get title from site"}
-        codePart1={"code part 1 block here"}
-        codePart2={"code part 2 here"}
-      />
+      <h2>{currentYear}</h2>
+
+      {dayElements && dayElements}
+     
     </article>
   );
 };

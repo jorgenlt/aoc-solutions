@@ -6,14 +6,12 @@ const Day = (props) => {
     <details className="puzzle">
       <summary className="puzzle-summary">
         <h2>
-          --- Day {props.day}: {props.title} ---
+          --- Day {props.day} ---
         </h2>
       </summary>
       <div>
         <span>
-          <a href="#" target="_blank">
-            Go to page
-          </a>
+          <a href={props.link} target="_blank" rel="noopener noreferrer">Puzzle</a>
         </span>
         <h3>Part 1</h3>
         <SyntaxHighlighter language="javascript" style={tomorrowNightBright} >
