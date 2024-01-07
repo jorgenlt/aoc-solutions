@@ -29,32 +29,34 @@ const App = () => {
   return (
     <>
       <header>
-        <div id="xmas--hat">
-          <img
-            src="/santa-hat.png"
-            alt="Santa's hat"
-            height={75}
-            style={{ marginRight: "20px" }}
-          />
+        <div>
+          <a onClick={() => handleSetYear(2015)}>2015</a>,{" "}
+          <a onClick={() => handleSetYear(2016)}>2016</a>,{" "}
+          <a onClick={() => handleSetYear(2017)}>2017</a>,{" "}
+          <a onClick={() => handleSetYear(2018)}>2018</a>,{" "}
+          <a onClick={() => handleSetYear(2019)}>2019</a>,{" "}
+          <a onClick={() => handleSetYear(2020)}>2020</a>,{" "}
+          <a onClick={() => handleSetYear(2021)}>2021</a>,{" "}
+          <a onClick={() => handleSetYear(2022)}>2022</a>,{" "}
+          <a onClick={() => handleSetYear(2023)}>2023</a>
         </div>
-        <h1>
-          <span>Advent of Code {currentYear}</span> - Solutions
-        </h1>
+        <div className="banner">
+          <div id="xmas--hat">
+            <img
+              src="/santa-hat.png"
+              alt="Santa's hat"
+              height={75}
+              style={{ marginRight: "20px" }}
+            />
+          </div>
+          <h1>
+            <span>Advent of Code {currentYear}</span> - Solutions
+          </h1>
+        </div>
       </header>
 
       <main>
         <div>
-          <h4>
-            <a onClick={() => handleSetYear(2015)}>2015</a>,{" "}
-            <a onClick={() => handleSetYear(2016)}>2016</a>,{" "}
-            <a onClick={() => handleSetYear(2017)}>2017</a>,{" "}
-            <a onClick={() => handleSetYear(2018)}>2018</a>,{" "}
-            <a onClick={() => handleSetYear(2019)}>2019</a>,{" "}
-            <a onClick={() => handleSetYear(2020)}>2020</a>,{" "}
-            <a onClick={() => handleSetYear(2021)}>2021</a>,{" "}
-            <a onClick={() => handleSetYear(2022)}>2022</a>,{" "}
-            <a onClick={() => handleSetYear(2023)}>2023</a>
-          </h4>
           <p onClick={() => dispatch(resetState())}>reset state</p>
           <p onClick={() => dispatch(setLoading())}>set loading</p>
           <h4>

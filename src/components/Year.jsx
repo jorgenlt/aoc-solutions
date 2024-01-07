@@ -24,10 +24,7 @@ const Year = () => {
 
   return (
     <article>
-      <h2>{currentYear}</h2>
-
       {dayElements && dayElements}
-     
     </article>
   );
 };
