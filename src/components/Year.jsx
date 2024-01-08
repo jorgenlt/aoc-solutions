@@ -1,7 +1,7 @@
 import Day from "./Day";
 import { useSelector } from "react-redux";
 
-const Year = () => {
+const Year = (props) => {
   const { currentYear, codeSnippets } = useSelector((state) => state.aoc);
 
   let currentSnippets;
@@ -23,7 +23,7 @@ const Year = () => {
   }
 
   return (
-    <article>
+    <article className={`year ${props.isVisible ? "" : "fade-out"}`} >
       {dayElements && dayElements}
     </article>
   );

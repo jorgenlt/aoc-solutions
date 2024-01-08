@@ -10,14 +10,21 @@ import {
 } from "./features/aoc/aocSlice";
 import { useEffect } from "react";
 import Loading from "./components/Loading";
+import { useState } from "react";
 
 const App = () => {
   const { currentYear, status, error } = useSelector((state) => state.aoc);
 
+  const [isYearVisible, setYearVisibility] = useState(true);
+
   const dispatch = useDispatch();
 
   const handleSetYear = (year) => {
-    dispatch(setYear(year));
+    setYearVisibility(false);
+    setTimeout(() => {
+      dispatch(setYear(year));
+      setYearVisibility(true)
+    }, 300);
   };
 
   useEffect(() => {
@@ -50,7 +57,7 @@ const App = () => {
             />
           </div>
           <h1>
-            <span>Advent of Code {currentYear}</span> - Solutions
+            <span>Advent of Code <span className={`year ${isYearVisible ? "" : "fade-out"}`}>{currentYear}</span></span> - Solutions
           </h1>
         </div>
       </header>
@@ -76,7 +83,7 @@ const App = () => {
 
         {status === "failed" && <p>{error}</p>}
 
-        <Year year={2023} />
+        <Year isVisible={isYearVisible} />
       </main>
     </>
   );
