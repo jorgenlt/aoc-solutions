@@ -1,16 +1,10 @@
 import "./styles/app.scss";
-
-import Year from "./components/Year";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setYear,
-  fetchCodeSnippetsAsync,
-  resetState,
-  setLoading,
-} from "./features/aoc/aocSlice";
-import { useEffect } from "react";
+import { setYear, fetchCodeSnippetsAsync } from "./features/aoc/aocSlice";
+import Year from "./components/Year";
 import Loading from "./components/Loading";
-import { useState } from "react";
+import Footer from "./components/Footer";
 
 const App = () => {
   const { currentYear, status, error } = useSelector((state) => state.aoc);
@@ -23,7 +17,7 @@ const App = () => {
     setYearVisibility(false);
     setTimeout(() => {
       dispatch(setYear(year));
-      setYearVisibility(true)
+      setYearVisibility(true);
     }, 300);
   };
 
@@ -57,24 +51,34 @@ const App = () => {
             />
           </div>
           <h1>
-            <span>Advent of Code <span className={`year ${isYearVisible ? "" : "fade-out"}`}>{currentYear}</span></span> - Solutions
+            <span>
+              Advent of Code{" "}
+              <span className={`year ${isYearVisible ? "" : "fade-out"}`}>
+                {currentYear}
+              </span>
+            </span>{" "}
+            - Solutions
           </h1>
         </div>
       </header>
 
       <main>
         <div>
-          <p onClick={() => dispatch(resetState())}>reset state</p>
-          <p onClick={() => dispatch(setLoading())}>set loading</p>
           <h4>
-            Description + link to site:{" "}
+            My solutions for{" "}
             <a
               href="https://adventofcode.com/"
               target="_blank"
               rel="noreferrer"
             >
               Advent of Code
-            </a>
+            </a>{" "}
+            puzzles. Fetches code snippets from my{" "}
+            <a
+              href="https://github.com/jorgenlt/advent-of-code"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Github repo</a>
             .
           </h4>
         </div>
@@ -85,6 +89,8 @@ const App = () => {
 
         <Year isVisible={isYearVisible} />
       </main>
+
+      <Footer />
     </>
   );
 };

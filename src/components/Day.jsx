@@ -37,6 +37,7 @@ const Day = (props) => {
         )}
         {isPartTwoCompleted && (
           <>
+            <br/>
             <h4>--- Part 2 ---</h4>
             <SyntaxHighlighter
               language="javascript"

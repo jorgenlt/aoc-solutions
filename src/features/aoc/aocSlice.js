@@ -101,9 +101,6 @@ const aocSlice = createSlice({
       state.status = "idle";
       state.error = null;
     },
-    setLoading(state) {
-      state.status = "loading";
-    },
   },
   extraReducers: (builder) => {
     builder
