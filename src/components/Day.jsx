@@ -2,8 +2,12 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { tomorrowNightBright } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 const Day = (props) => {
-  const isPartOneCompleted = props.codePart1 ? props.codePart1[0] !== " " : false;
-  const isPartTwoCompleted = props.codePart2 ? props.codePart2[0] !== " " : false;
+  const isPartOneCompleted = props.codePart1
+    ? props.codePart1[0] !== " "
+    : false;
+  const isPartTwoCompleted = props.codePart2
+    ? props.codePart2[0] !== " "
+    : false;
 
   return (
     <details className="puzzle">
@@ -13,17 +17,20 @@ const Day = (props) => {
       <div>
         {!isPartOneCompleted && !isPartTwoCompleted ? (
           <p>
-            {" "}
             <a href={props.link} target="_blank" rel="noopener noreferrer">
               Puzzle
             </a>{" "}
             not yet completed
           </p>
         ) : (
-          <a href={props.link} target="_blank" rel="noopener noreferrer">
-            Puzzle
-          </a>
+          <p>
+            See{" "}
+            <a href={props.link} target="_blank" rel="noopener noreferrer">
+              puzzle
+            </a>
+          </p>
         )}
+
         {isPartOneCompleted && (
           <>
             <h4>--- Part 1 ---</h4>
@@ -35,9 +42,10 @@ const Day = (props) => {
             </SyntaxHighlighter>
           </>
         )}
+
         {isPartTwoCompleted && (
           <>
-            <br/>
+            <br />
             <h4>--- Part 2 ---</h4>
             <SyntaxHighlighter
               language="javascript"

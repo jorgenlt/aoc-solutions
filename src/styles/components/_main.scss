@@ -1,0 +1,47 @@
+main {
+  div {
+    h4 {
+      text-align: center;
+      margin: 0 0 4rem 0;
+    }
+  }
+
+  article {
+    h2 {
+      display: inline;
+      margin: 1rem 0;
+    }
+
+    div {
+      h4 {
+        margin: 2rem 0 1rem 0;
+        text-align: left;
+      }
+    }
+  }
+}
+
+summary:hover {
+  cursor: pointer;
+}
+
+details[open] summary {
+  color: $highlight;
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    div {
+      h4 {
+        font-size: 1rem;
+        margin: 0 0 2rem 0;
+      }
+    }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}

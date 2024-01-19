@@ -4,17 +4,16 @@ $highlight: #00cc00;
 
 :root {
   color: $text;
-}
-
-h1, h2, h3, h4 {
-  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {
   background-color: $background;
   color: $text;
   font-family: "Fira Code", monospace;
-  margin: 20px;
+  margin: 0 5rem;
 
   a {
     color: $highlight;
@@ -28,16 +27,11 @@ body {
   }
 }
 
-header {
-  padding: 60px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.banner {
-  display: flex;
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
 }
 
 h1 {
@@ -47,79 +41,9 @@ h1 {
   }
 }
 
-main {
-  div {
-    h4 {
-      text-align: center;
-      margin: 0 0 4rem 0;
-    }
+@media screen and (max-width: 800px) {
+  body {
+    margin: 0;
+    max-width: 90vw;
   }
-}
-
-article {
-  margin: 0 2rem;
-
-  h2 {
-    display: inline;
-    margin: 1rem 0;
-  }
-
-  div {
-    h4 {
-      margin: 2rem 0 1rem 0;
-      text-align: left;
-    }
-  }
-}
-
-summary:hover {
-  cursor: pointer;
-}
-
-details[open] summary {
-  color: $highlight;
-}
-
-pre {
-  width: auto;
-  padding: 0 3rem 1rem 0;
-  background-color: rgb(16, 16, 26);
-}
-
-.red {
-  color: red;
-}
-
-.gold {
-  color: gold;
-}
-
-.white {
-  color: white;
-}
-
-@media screen and (max-width: 600px) {
-  header {
-    padding-top: 5rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  main {
-    div {
-      h4 {
-        font-size: 1.2rem;
-      }
-    }
-  }
-}
-
-#codepen-badge {
-  position: absolute;
-  top: 3%;
-  left: 2%;
-  padding: 1rem;
-  border-radius: 2rem;
 }
