@@ -15,7 +15,7 @@ const Header = (props) => {
       <div className="banner">
         <div id="xmas-hat">
           <img
-            src="/santa-hat.png"
+            src="../../public/santa-hat.png"
             alt="Santa's hat"
           />
         </div>
