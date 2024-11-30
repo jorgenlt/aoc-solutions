@@ -10,7 +10,8 @@ const Header = (props) => {
         <a onClick={() => props.handleSetYear(2020)}>2020</a>,{" "}
         <a onClick={() => props.handleSetYear(2021)}>2021</a>,{" "}
         <a onClick={() => props.handleSetYear(2022)}>2022</a>,{" "}
-        <a onClick={() => props.handleSetYear(2023)}>2023</a>
+        <a onClick={() => props.handleSetYear(2023)}>2023</a>,{" "}
+        <a onClick={() => props.handleSetYear(2024)}>2024</a>
       </div>
       <div className="banner">
         <div id="xmas-hat">

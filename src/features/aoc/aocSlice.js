@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  currentYear: 2023,
+  currentYear: 2024,
   codeSnippets: null,
   status: "idle",
   error: null,
@@ -37,7 +37,7 @@ export const fetchCodeSnippetsAsync = createAsyncThunk(
   "data/fetchCodeSnippets",
   async () => {
     const years = [];
-    for (let i = 2015; i <= 2023; i++) {
+    for (let i = 2015; i <= 2024; i++) {
       years.push(i);
     }
 
@@ -96,7 +96,7 @@ const aocSlice = createSlice({
       state.currentYear = action.payload;
     },
     resetState(state) {
-      state.currentYear = 2023;
+      state.currentYear = 2024;
       state.codeSnippets = null;
       state.status = "idle";
       state.error = null;
